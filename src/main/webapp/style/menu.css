@@ -1,0 +1,11 @@
+div.navigation-bar{
+    padding: 20px 0;
+    display: flex;
+    position: sticky;
+    justify-content: center;
+    z-index: 1;
+    height: 20%;
+}
+div.navigation-bar img{
+
+}
