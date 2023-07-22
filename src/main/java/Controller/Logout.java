@@ -19,7 +19,7 @@ public class Logout extends HttpServlet {
         UserBean user = (UserBean) session.getAttribute("user");
 
         if(user.isAdmin().equalsIgnoreCase("true")){
-
+            System.out.println("La madonna fa i chinotti");
         }
 
     }
