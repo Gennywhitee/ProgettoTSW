@@ -18,7 +18,9 @@ public class Logout extends HttpServlet {
         HttpSession session = request.getSession();
         UserBean user = (UserBean) session.getAttribute("user");
 
+        if(user.isAdmin().equalsIgnoreCase("true")){
 
+        }
 
     }
 }
