@@ -1,13 +1,4 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Chi Siamo</title>
-</head>
-<body>
-
-</body>
-</html>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="it-IT">
 <head>
@@ -16,11 +7,8 @@
     <meta charset="UTF-8">
     <title>Chi siamo</title>
 
-    <link rel="stylesheet" type="text/css" href="style/general.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style/chiSiamo.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="script/product.js"></script>
 
 </head>
 <body>

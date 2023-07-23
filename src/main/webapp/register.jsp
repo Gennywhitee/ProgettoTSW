@@ -4,11 +4,13 @@
 <head>
     <title>Registrazione</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style/login.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="script/validateForm.js"></script>
 </head>
 <body>
 <%@include file="menu.jsp"%>
 <div class="login-form">
-    <form action="register-servlet" method="post" id="register-form">
+    <form action="register-servlet" method="post" id="loginForm">
         <label for="nome" name="nome" id="nome">Nome</label>
         <input type="text" placeholder="Nome" name="nome" required>
         <label for="cognome" name="cognome" id="cognome">Cognome</label>
@@ -21,7 +23,7 @@
         <label for="password" name="password" id="password">Password</label>
         <input type="password" placeholder="Password" name="password" required>
         <label for="telefono" name="telefono" id="telefono">Telefono</label>
-        <input type="text" placeholder="+39" name="telefono">
+        <input type="tel" placeholder="+39" name="telefono">
         </br>
         <label for="citta" name="citta" id="citta">Citta</label>
         <input type="text" placeholder="citta" name="citta">
@@ -33,7 +35,7 @@
         <input type="text" placeholder="CAP" name="cap">
         </br>
         <div class="register-button">
-            <input type="submit" value="Crea un account" class="submit-register">
+            <input type="button" value="Crea un account" onclick="validateRegistration()" class="submit-register">
         </div>
 
     </form>

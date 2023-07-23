@@ -24,7 +24,7 @@ label {
 }
 
 input[type="date"] ,input[type="text"], input[type="email"],
-input[type="password"] {
+input[type="password"], input[type="tel"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -34,7 +34,7 @@ input[type="password"] {
 
 
 
-input[type="submit"] {
+.register-button input[type="button"], .login-form input[type="button"] {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
@@ -46,7 +46,8 @@ input[type="submit"] {
     font-size: math;
 }
 
-input[type="submit"]:hover{
+
+input[type="submit"]:hover {
     color: #000;
     background-color: #CCA43B;
     font-weight: bold;
