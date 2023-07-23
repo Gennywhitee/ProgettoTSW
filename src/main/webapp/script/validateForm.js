@@ -112,14 +112,14 @@ function controlCAP(){
 }
 
 function validateRegistration(){
-    if(controlName() & controlCognome() & controlDdNascita() & controlEmail() & controlPasswd() &
-        controlTelefono() & controlCitta() & controlProvince() & controlIndirizzo() & controlCAP())
+    if(controlName() && controlCognome() && controlDdNascita() && controlEmail() && controlPasswd() &&
+        controlTelefono() && controlCitta() && controlProvince() && controlIndirizzo() && controlCAP())
         document.getElementById("loginForm").submit();
 }
 
 function validateLogin() {
 
-    if (controlEmail() & controlPasswd())
+    if (controlEmail() && controlPasswd())
         document.getElementById("loginForm").submit();
 }
 
