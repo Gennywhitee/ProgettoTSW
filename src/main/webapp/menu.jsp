@@ -17,7 +17,7 @@
         url = "location.href='login.jsp'";
     }else{
         name= myProfile.getNome();
-        url = "location.href='WEB-INF/user/user-profile.jsp'";
+        url = "location.href='user-profile-servlet'";
     }
 %>
 <div class="nav-menu">

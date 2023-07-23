@@ -1,0 +1,47 @@
+div.container-page-chiSiamo{
+    margin: 20px;
+}
+
+div.doveSiamo{
+    margin-bottom: 20px;
+    text-align: center;
+    color: #0F1A20;
+}
+
+.google-maps {
+    position: relative;
+    padding-bottom: 50%;
+    height: 0;
+    overflow: hidden;
+}
+iframe{
+    margin: 10px;
+    width: 80%;
+    height: 450px;
+    loading:lazy;
+    referrerpolicy: no-referrer-when-downgrade;
+}
+.container-p {
+    margin-left: 10%;
+    text-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: auto;
+    background-color: #bbbbbb;
+
+}
+
+@media screen and (max-width: 1160px) {
+    p{
+        margin-top: 80px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    p{
+        margin-top: 80px;
+        display: block;
+    }
+}

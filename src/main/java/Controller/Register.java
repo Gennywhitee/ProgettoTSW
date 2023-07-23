@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.io.PrintStream;
@@ -27,12 +28,9 @@ public class Register extends HttpServlet {
 
         try {
             if(userDAO.isAlreadyRegistered(email)){ //eMail già esistente
-                RequestDispatcher dispatcher;
-                dispatcher = request.getRequestDispatcher("login.jsp");
-                dispatcher.include(request,response);
+                response.sendRedirect("login.jsp");
 
             } else{ //Controllo lato server tramite espressioni regolari definite in basso
-
                 int count = 0;
                 String nome = request.getParameter("nome");
                 Matcher matcher = info_string.matcher(nome);
@@ -81,7 +79,7 @@ public class Register extends HttpServlet {
                     count++;
 
                 String cap = request.getParameter("cap");
-                matcher = cap_string.matcher(provincia);
+                matcher = cap_string.matcher(cap);
                 matchFound = matcher.find();
                 if(matchFound)
                     count++;
@@ -112,14 +110,14 @@ public class Register extends HttpServlet {
 
 
                     userDAO.doSave(userBean);
+                    HttpSession session = request.getSession();
+                    session.setAttribute("user",userBean);
                     response.sendRedirect("index.jsp"); //Rimanda alla homepage
                 }
 
 
 
                }
-        } catch (ServletException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
