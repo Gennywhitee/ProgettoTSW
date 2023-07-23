@@ -34,6 +34,14 @@ public class Login extends HttpServlet {
 
            }
            else{
+
+               CartBean cartBean = new CartBean();
+               CartDAO serviceCart = new CartDAO();
+
+               cartBean.setCartList(serviceCart.getCart(userBean.getId()));
+
+               session.setAttribute("cart", cartBean);
+               session.setAttribute("user",userBean);
                response.sendRedirect("index.jsp");
            }
        }

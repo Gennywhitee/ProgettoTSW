@@ -2,10 +2,13 @@ div.navigation-bar{
     padding: 20px 0;
     display: flex;
     position: sticky;
-    justify-content: center;
+    justify-content: start;
     z-index: 1;
     height: 20%;
+    width: 400px;
 }
 div.navigation-bar img{
-
+    display: block;
+    width: min-content;
+    height: 20%;
 }

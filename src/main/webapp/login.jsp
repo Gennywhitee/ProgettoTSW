@@ -1,10 +1,17 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style/login.css">
 </head>
 <body>
+<%@include file="menu.jsp"%>
+
+<%
+    if (myProfile != null) {
+        response.sendRedirect("index.jsp");
+    }
+%>
     <div class="login-form">
         <form action="login-servlet" method="post">
             <label for="email" id="email">Email</label>
