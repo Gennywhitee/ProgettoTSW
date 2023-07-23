@@ -133,5 +133,13 @@ function validateLogin() {
 
 }
 
+function validateEditProfile(){
+    if(controlName() && controlCognome() && controlDdNascita() && controlEmail() && controlPasswd() &&
+        controlTelefono() && controlCitta() && controlProvince() && controlIndirizzo() && controlCAP()){
+        document.getElementById("edit-profile").submit();
+        return true;
+    }
+}
+
 
 

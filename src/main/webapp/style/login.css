@@ -86,3 +86,22 @@ span{
     color: white;
     font-size: large;
 }
+
+.login-button input[type="button"]{
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #5B6A82;
+    color: #fff;
+    border-top: black;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: math;
+}
+
+.login-button input[type="button"]:hover{
+    color: #000;
+    background-color: #CCA43B;
+    font-weight: bold;
+    font-size: medium;
+}

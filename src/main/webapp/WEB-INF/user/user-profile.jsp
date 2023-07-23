@@ -1,4 +1,3 @@
-<%--@elvariable id="profileJSP" type="model.UtenteBean"--%>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="it-IT">
@@ -8,6 +7,7 @@
     <meta charset="UTF-8">
     <title>Profilo</title>
 
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style/login.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style/profile.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -19,20 +19,22 @@
 
 <%@ include file="/menu.jsp"%>
 
+
 <div class="edit-form">
     <form action="edit-profile-servlet" method="post" id="edit-profile">
         <div class="container">
             <div class="personal-information">
                 <label class="text-section">Dati personali</label>
 
-                <label for="name" class="login-text">Nome</label>
-                <input type="text" class="register" id="name" name="name" placeholder="${profileJSP.getName()}" value="${profileJSP.getName()}">
+                <label for="nome" class="login-text">Nome</label>
+                <input type="text" class="register" id="nome" name="nome" placeholder="${profileJSP.getNome()}" value="${profileJSP.getNome()}"> <%--profileJSP vairabile userBean--%>
 
-                <label for="surname" class="login-text">Cognome</label>
-                <input type="text" class="register" id="surname" name="surname" placeholder="${profileJSP.getSurname()}" value="${profileJSP.getSurname()}">
+                <label for="cognome" class="login-text">Cognome</label>
+                <input type="text" class="register" id="cognome" name="cognome" placeholder="${profileJSP.getCognome()}" value="${profileJSP.getCognome()}">
 
-                <label for="birthday" class="login-text">Data di nascita</label>
-                <input type="text" class="register" id="birthday" name="birthday" placeholder="${profileJSP.getBirthday()}" onfocus="(this.type='date')" value="${profileJSP.getBirthday()}">
+                <label for="dDNascita" class="login-text">Data di nascita</label>
+                <input type="text" class="register" id="dDNascita" name="dDNascita" placeholder="${profileJSP.getDdNascita()}" onfocus="(this.type='date')" value="${profileJSP.getDdNascita()}"> <%--focus type date, significa che quando l'oggetto diventa focussato--%>
+                                                                                                                                                                                                <%--cambia da testo a data per essere modificato come quest'ultima--%>
             </div>
 
             <div class="login-information">
@@ -44,29 +46,32 @@
                 <label for="password" class="login-text">Password</label>
                 <input type="password" class="register" id="password" name="password" placeholder="Password" required>
 
-                <label for="phone" class="login-text">Telefono</label>
-                <input type="tel" class="register" id="phone" name="phone" placeholder="${profileJSP.getPhone()}" value="${profileJSP.getPhone()}">
+                <label for="telefono" class="login-text">Telefono</label>
+                <input type="tel" class="register" id="telefono" name="telefono" placeholder="${profileJSP.getTelefono()}" value="${profileJSP.getTelefono()}">
             </div>
 
             <div class="address-information">
                 <label class="text-section">Indirizzo</label>
 
-                <label for="city" class="login-text">Città</label>
-                <input type="text" class="register" id="city" name="city" placeholder="${profileJSP.getCity()}" value="${profileJSP.getCity()}">
+                <label for="citta" class="login-text">Città</label>
+                <input type="text" class="register" id="citta" name="citta" placeholder="${profileJSP.getCitta()}" value="${profileJSP.getCitta()}">
 
-                <label for="province" class="login-text">Provincia</label>
-                <input type="text" class="register" id="province" name="province" placeholder="${profileJSP.getProvince()}" value="${profileJSP.getProvince()}">
+                <label for="provincia" class="login-text">Provincia</label>
+                <input type="text" class="register" id="provincia" name="province" placeholder="${profileJSP.getProvincia()}" value="${profileJSP.getProvincia()}">
 
-                <label for="postalCode" class="login-text">Codice Postale</label>
-                <input type="text" class="register" id="postalCode" name="postalCode" placeholder="${profileJSP.getPostalCode()}" value="${profileJSP.getPostalCode()}">
+                <label for="cap" class="login-text">Codice Postale</label>
+                <input type="text" class="register" id="cap" name="cap" placeholder="${profileJSP.getCap()}" value="${profileJSP.getCap()}">
 
-                <label for="address" class="login-text">Indirizzo</label>
-                <input type="text" class="register" id="address" name="address" placeholder="${profileJSP.getAddress()}" value="${profileJSP.getAddress()}">
+                <label for="indirizzo" class="login-text">Indirizzo</label>
+                <input type="text" class="register" id="indirizzo" name="indirizzo" placeholder="${profileJSP.getIndirizzo()}" value="${profileJSP.getIndirizzo()}">
             </div>
         </div>
 
-        <div class="register-button">
+        <div class="login-button">
             <input type="button" onclick="validateEditProfile()" value="Salva">
+        </div>
+        <div class="login-button">
+            <input type="button" onclick="location.href='logout-servlet'" value="Logout">
         </div>
     </form>
 </div>

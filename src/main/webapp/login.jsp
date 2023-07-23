@@ -22,7 +22,7 @@
             <input type="email" name="email" placeholder="Email" id="email" required>
             <label for="password" >Password</label>
             <input type="password" name="password" placeholder="Password" id="password" required>
-            <input type="button" name="Accedi" value="Accedi" onclick="validateLogin()"></form></br>
+            <input class="login-button" type="button" name="Accedi" value="Accedi" onclick="validateLogin()"></form></br>
             <span>Se non hai un account: <a href="register.jsp">Registrati</a></span>
         </form>
     </div>
