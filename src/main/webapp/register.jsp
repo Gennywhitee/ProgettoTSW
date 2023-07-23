@@ -1,11 +1,12 @@
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Registrazione</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style/login.css">
 </head>
 <body>
+<%@include file="menu.jsp"%>
 <div class="login-form">
     <form action="register-servlet" method="post" id="register-form">
         <label for="nome" name="nome" id="nome">Nome</label>
@@ -37,5 +38,6 @@
 
     </form>
 </div>
+<%@include file="footer.jsp"%>
 </body>
 </html>

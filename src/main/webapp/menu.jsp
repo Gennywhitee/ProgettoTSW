@@ -6,6 +6,7 @@
 
     <title>Menu</title>
     <link rel="stylesheet" type="text/css" href="style/menu.css">
+    <script src='https://kit.fontawesome.com/c6b30e1924.js' crossorigin='anonymous'></script>
 </head>
 <body>
 <%UserBean myProfile = (UserBean) request.getSession().getAttribute("user");
@@ -23,10 +24,15 @@
         <a href="index.jsp"><img src="${pageContext.request.contextPath}/photo/template/LogoScrittaBianca.png"></a>
         <div class="nav-menu-buttons">
             <input type="button" onclick="location.href='index.jsp'" value="HomePage">
+            <i class="fa solid fa-home" onclick="location.href='index.jsp'"></i>
             <input type="button" onclick="location.href='catalog.jsp'" value="Catalogo">
+            <i class="fa solid fa-book-open" onclick="location.href='catalog.jsp'"></i>
             <input type="button" onclick="location.href='chiSiamo.jsp'" value="Chi Siamo">
+            <i class="fa solid fa-circle-info" onclick="location.href='chiSiamo.jsp'"></i>
             <input type="button" onclick="location.href='cart.jsp'" value="Carrello">
+            <i class="fa solid fa-cart-shopping" onclick="location.href='cart.jsp'"></i>
             <input type="button" onclick="<%=url%>" value="<%=name%>">
+            <i class="fa solid fa-user" onclick="<%=url%>"></i>
         </div>
 </div>
 

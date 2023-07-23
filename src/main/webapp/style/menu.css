@@ -39,3 +39,23 @@ div.nav-menu-buttons input{
 div.nav-menu-buttons input:active,div.nav-menu-buttons input:hover {
     background-color: #CCA43B;
 }
+
+.fa-user:hover, .fa-book-open, .fa-cart-shopping, .fa-circle-info, .fa-home{
+    cursor: pointer;
+}
+div.nav-menu-buttons i{
+    justify-content: center;
+    display: block;
+    margin-top: 30px;
+}
+
+@media screen and (min-width: 1000px){
+    div.nav-menu-buttons i{
+        display: none;
+    }
+}
+@media screen and (max-width: 1000px){
+    div.nav-menu-buttons input{
+        display: none;
+    }
+}

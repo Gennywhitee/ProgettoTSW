@@ -22,5 +22,6 @@
             <span>Se non hai un account: <a href="register.jsp">Registrati</a></span>
         </form>
     </div>
+<%@include file="footer.jsp"%>
 </body>
 </html>
