@@ -1,0 +1,165 @@
+/* Stili per l'immagine del prodotto */
+.imgProdotto {
+    width: 100%; /* Imposta la larghezza dell'immagine al 100% */
+    aspect-ratio: 1/1; /* Imposta il rapporto di aspetto dell'immagine a 1:1 (quadrata) */
+    object-fit: cover; /* Rende l'immagine adatta al riquadro senza distorsioni */
+    max-width: 100%; /* l'immagine non supera la larghezza del suo contenitore */
+}
+
+button{
+    text-decoration: none;
+}
+
+/* Stili per il contenitore del prodotto */
+.prodotto-body {
+    margin: 35px 20px 20px 20px;
+    display: grid; /* Imposta il contenitore come grid */
+    grid-template-columns: repeat(5, 1fr); /* Imposta cinque colonne con larghezza uguale */
+    grid-gap: 20px; /* Aggiunge uno spazio di 20px tra i prodotti */
+    padding: 10px; /* Aggiunge un padding di 10px al contenuto del corpo */
+}
+
+/* Stili per il singolo prodotto  */
+.prodotto {
+    text-align: center; /* Allinea il testo del prodotto al centro */
+    padding: 10px; /* Aggiunge un padding di 10px al contenuto del prodotto */
+    background-color: #f1f1f1; /* Imposta il colore di sfondo del prodotto */
+    position: relative; /* Imposta la posizione relativa per il prodotto */
+    border-radius: 10px;
+}
+
+/* Stili per il link all'interno del prodotto */
+.prodotto a {
+    color: #2d3b55; /* Imposta il colore del testo del link */
+    text-decoration: none; /* Rimuove la sottolineatura dai link */
+}
+
+/* Stili quando si passa sopra il prodotto */
+.prodotto:hover {
+    background-color: #f6f3f3; /* Cambia il colore di sfondo del prodotto al passaggio del mouse */
+    transition: 0.2s; /* Aggiunge una transizione di 0.2 secondi */
+    text-decoration: none; /* Rimuove la sottolineatura al passaggio del mouse */
+
+    -moz-box-shadow: 3px 6px 14px -2px rgba(45, 59, 85, 0.82); /* Aggiunge una leggera ombra */
+    box-shadow: 3px 6px 14px -2px rgba(45, 59, 85, 0.82); /* Aggiunge una leggera ombra */
+}
+
+/* Stili quando si passa sopra il link all'interno del prodotto */
+.prodotto a:hover {
+    color: #000000; /* Cambia il colore del testo del link al passaggio del mouse */
+}
+
+/* Stili per il pulsante all'interno del prodotto */
+.prodotto-pulsante {
+    text-decoration: none; /* Rimuove la sottolineatura dal pulsante */
+    border: 1px solid #cca43b; /* Aggiunge un bordo con spessore di 1px al pulsante */
+    border-radius: 2em; /* Aggiunge un bordo arrotondato al pulsante */
+    font-size: 0.7em; /* Imposta la dimensione del testo del pulsante a 0.7em */
+    background-color: #cca43b; /* Imposta il colore di sfondo del pulsante */
+    font-weight: bold; /* Imposta lo spessore del testo in grassetto */
+    text-align: center; /* Allinea il testo del pulsante al centro */
+    color: black; /* Imposta il colore del testo a nero */
+    width: 100%; /* Imposta la larghezza del pulsante al 100% */
+    padding: 10px; /* Aggiunge un padding di 10px al contenuto del pulsante */
+    bottom: 50px; /* Posiziona il pulsante a 50px dal fondo del prodotto */
+    justify-content: space-around; /* Aggiunge uno spazio uniforme attorno al contenuto del pulsante */
+    text-transform: uppercase; /* Trasforma il testo del pulsante in maiuscolo */
+}
+
+/* Stili quando si passa sopra il pulsante */
+.prodotto-pulsante:hover { /* Cambia il colore di sfondo del pulsante al passaggio del mouse */
+    transition: 0.3s; /* Aggiunge una transizione di 0.3 secondi */
+    cursor: pointer; /* Imposta il cursore del mouse a "pointer" al passaggio del mouse */
+    border: lightblue; /* Cambia il colore del bordo del pulsante al passaggio del mouse */
+    color: white; /* Cambia il colore del testo del pulsante al passaggio del mouse */
+    text-decoration: none; /* Rimuove la sottolineatura al passaggio del mouse */
+    transform: scale(1.01); /* Applica una leggera scala del 1% al pulsante al passaggio del mouse */
+
+}
+
+
+
+
+@media (max-width:1000px) {
+    .prodotto {
+        text-align: center;
+        padding: 10px;
+        background-color: #f1f1f1;
+    }
+
+    p {
+        font-size: 13px;
+    }
+
+    @media (max-width: 840px) {
+        .prodotto {
+            text-align: center;
+            padding: 10px;
+            background-color: #f1f1f1;
+        }
+
+        .imgProdotto {
+            width: 100%;
+        }
+
+        p {
+            font-size: 10px;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .prodotto {
+            text-align: center;
+            padding: 10px;
+            background-color: #f1f1f1;
+        }
+
+        .prodotto-body {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            padding: 10px;
+        }
+
+    }
+
+    @media (max-width: 578px) {
+
+        .prodotto {
+            text-align: center;
+            padding: 10px;
+            background-color: #f1f1f1;
+        }
+
+        .prodotto-body {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            padding: 10px;
+
+        }
+
+    }
+    @media (max-width: 325px) {
+        .prodotto {
+            text-align: center;
+            padding: 10px;
+            background-color: #f1f1f1;
+        }
+
+        .prodotto-body {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 20px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            padding: 10px;
+        }
+    }
+}
+
+

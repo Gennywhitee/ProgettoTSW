@@ -12,17 +12,5 @@
 <body>
 <%@ include file="/menu.jsp"%>
 
-
-
-<nav class="navbar">
-    <div class="logo">Logo</div>
-    <ul class="nav-links">
-        <li><a href="#">Catalogo</a></li>
-        <li><a href="#">Chi siamo</a></li>
-        <li><a href="login.jsp">Login</a></li>
-        <li><a href="#">Carrello</a></li>
-        <li> <a href="<%=url%>"><%=name%></a></li>
-        <li onclick="location.href='${pageContext.request.contextPath}user-profile-servlet'">Profilo</li>
-    </ul>
-</nav>
+<%@include file="footer.jsp"%>
 </body>
