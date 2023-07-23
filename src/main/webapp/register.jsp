@@ -4,35 +4,35 @@
 <head>
     <title>Registrazione</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style/login.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="script/validateForm.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
+    <script type="text/javascript" src="script/validateForm.js" defer></script>
 </head>
 <body>
 <%@include file="menu.jsp"%>
 <div class="login-form">
     <form action="register-servlet" method="post" id="loginForm">
-        <label for="nome" name="nome" id="nome">Nome</label>
-        <input type="text" placeholder="Nome" name="nome" required>
-        <label for="cognome" name="cognome" id="cognome">Cognome</label>
-        <input type="text" placeholder="Cognome" name="cognome" required>
-        <label for="dDNascita" name="dDNascita" id="dDNascita">Data di Nascita</label>
-        <input type="date" name="dDNascita" required>
+        <label for="nome" name="nome" >Nome</label>
+        <input type="text" placeholder="Nome" id="nome" name="nome" required>
+        <label for="cognome" name="cognome" >Cognome</label>
+        <input type="text" placeholder="Cognome" name="cognome" id="cognome" required>
+        <label for="dDNascita" name="dDNascita" >Data di Nascita</label>
+        <input type="date" name="dDNascita" id="dDNascita" required>
         </br>
-        <label for="email" name="email" id="email">Email</label>
-        <input type="email" placeholder="Email" name="email" required>
-        <label for="password" name="password" id="password">Password</label>
-        <input type="password" placeholder="Password" name="password" required>
-        <label for="telefono" name="telefono" id="telefono">Telefono</label>
-        <input type="tel" placeholder="+39" name="telefono">
+        <label for="email" name="email" >Email</label>
+        <input type="email" placeholder="Email" id="email" name="email" required>
+        <label for="password" name="password" >Password</label>
+        <input type="password" placeholder="Password" id="password" name="password" required>
+        <label for="telefono" name="telefono" >Telefono</label>
+        <input type="tel" placeholder="+39" name="telefono" id="telefono">
         </br>
-        <label for="citta" name="citta" id="citta">Citta</label>
-        <input type="text" placeholder="citta" name="citta">
-        <label for="provincia" name="provincia" id="provincia">Provincia</label>
-        <input type="text" placeholder="provincia" name="provincia">
-        <label for="indirizzo" name="indirizzo" id="indirizzo">Indirizzo</label>
-        <input type="text" placeholder="indirizzo" name="indirizzo">
-        <label for="cap" name="cap" id="cap">CAP</label>
-        <input type="text" placeholder="CAP" name="cap">
+        <label for="citta" name="citta" >Citta</label>
+        <input type="text" placeholder="citta" id="citta" name="citta">
+        <label for="provincia" name="provincia" >Provincia</label>
+        <input type="text" placeholder="provincia" id="provincia" name="provincia">
+        <label for="indirizzo" name="indirizzo" >Indirizzo</label>
+        <input type="text" placeholder="indirizzo" id="indirizzo" name="indirizzo">
+        <label for="cap" name="cap" >CAP</label>
+        <input type="text" placeholder="CAP" id="cap" name="cap">
         </br>
         <div class="register-button">
             <input type="button" value="Crea un account" onclick="validateRegistration()" class="submit-register">

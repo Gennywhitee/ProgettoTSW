@@ -56,6 +56,6 @@
 
 <div class="product-show">
 </div>
-</br>
+    </br>
 <%@include file="footer.jsp"%>
 </body>

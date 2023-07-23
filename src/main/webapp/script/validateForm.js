@@ -1,5 +1,5 @@
-const info_string = /^([a-zA-Z\xE0\xE8\xE9\xF9\xF2\xEC\x27]\s?){2,30}$/;
-const email_string = /^[a-zA-Z\d._%-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,30}$/;
+const info_string = /^([a-zA-Z\xE0\xE8\xE9\xF9\xF2\xEC\x27]\s?){2,20}$/;
+const email_string = /^[a-zA-Z\d._%-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,20}$/;
 const password_string = /^[a-zA-Z\d\-\xE0\xE8\xE9\xF9\xF2\xEC\x27]{6,16}/;
 const phone_string = /^\d{10}$/;
 const province_string = /^([a-zA-Z]{2})$/;
@@ -29,15 +29,18 @@ function controlCognome(){
         return false;
     }
 }
-function controlDdNascita(){
-    let dDNscita = document.getElementById("dDNascita").value;
-    if (dDNscita.value != null){
-        $("#dDNascita").css("border-color","#E5E5E5");
-        return true;
-    } else{
-        $("#dDNascita").css("border-color","#C92403");
-        return false;
-    }
+function controlDdNascita() {
+
+        let dDNascita = new Date(document.getElementById("dDNascita").value);
+        let today = new Date();
+
+        if (today > dDNascita) {
+            $("#dDNascita").css("border-color", "#E5E5E5");
+            return true;
+        } else {
+            $("#dDNascita").css("border-color", "#C92403");
+            return false;
+        }
 }
 function controlEmail(){
     let email = document.getElementById("email").value;
@@ -113,14 +116,21 @@ function controlCAP(){
 
 function validateRegistration(){
     if(controlName() && controlCognome() && controlDdNascita() && controlEmail() && controlPasswd() &&
-        controlTelefono() && controlCitta() && controlProvince() && controlIndirizzo() && controlCAP())
+        controlTelefono() && controlCitta() && controlProvince() && controlIndirizzo() && controlCAP()){
         document.getElementById("loginForm").submit();
+        return true;
+    }
+
 }
 
 function validateLogin() {
 
-    if (controlEmail() && controlPasswd())
+    if (controlEmail() && controlPasswd()){
         document.getElementById("loginForm").submit();
+        return true;
+    }
+    return false;
+
 }
 
 
