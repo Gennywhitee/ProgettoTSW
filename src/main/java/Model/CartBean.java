@@ -71,14 +71,5 @@ public class CartBean {
         }
 
         cartList.remove(position - 1);
-
-        /*
-        for (ProductCartBean product : cartList) {
-
-            if (product.getId() == id) {
-                this.numberObject -= product.getQuantity();
-                cartList.remove(product);
-            }
-        }*/
     }
 }

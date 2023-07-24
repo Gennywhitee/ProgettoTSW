@@ -1,18 +1,16 @@
 package Controller;
 
+import Model.CartBean;
+import Model.CartDAO;
 import Model.UserBean;
 import Model.UserDAO;
-import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-import java.io.IOException;
-import java.io.PrintStream;
-import java.sql.SQLException;
+import java.io.IOException;;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -110,6 +108,8 @@ public class Register extends HttpServlet {
 
 
                     userDAO.doSave(userBean);
+                    CartDAO cartDAO = new CartDAO();
+                    CartBean cart =  new CartBean();
                     HttpSession session = request.getSession();
                     session.setAttribute("user",userBean);
                     response.sendRedirect("index.jsp"); //Rimanda alla homepage
