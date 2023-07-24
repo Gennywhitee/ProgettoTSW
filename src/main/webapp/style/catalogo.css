@@ -76,6 +76,9 @@ button{
     transform: scale(1.01); /* Applica una leggera scala del 1% al pulsante al passaggio del mouse */
 
 }
+p{
+    color: black;
+}
 
 
 

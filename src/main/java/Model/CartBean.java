@@ -7,8 +7,7 @@ public class CartBean {
     private int numberObject;
     private ArrayList<ProductCartBean> cartList;
 
-    public CartBean(int id) {
-        user = id;
+    public CartBean() {
         cartList = new ArrayList<>();
         numberObject = 0;
     }

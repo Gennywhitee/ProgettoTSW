@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet(name = "loginServlet", value = "/login-servlet")
 public class Login extends HttpServlet {
@@ -33,11 +34,12 @@ public class Login extends HttpServlet {
                response.sendRedirect("WEB-INF/Admin/adminHome.jsp");
 
            }
-           else{//utente fa login
+           else{
+
+               CartBean cartBean = new CartBean();
                CartDAO serviceCart = new CartDAO();
-               CartBean cartBean = serviceCart.getCart(userBean.getId()); //prendo il carrello dell'utente dal DB
 
-
+               cartBean.setCartList(serviceCart.getCart(userBean.getId()));
 
                session.setAttribute("cart", cartBean);
                session.setAttribute("user",userBean);

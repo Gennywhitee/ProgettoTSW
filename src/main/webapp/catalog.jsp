@@ -12,12 +12,12 @@
 <div class="prodotto-body">
 
   <div class="prodotto">
-    <a href="#" target="_blank" >
+    <a href="show-product-servlet" target="_blank" >
       <img src="https://distefanobiancheriaperlacasa.com/wp-content/uploads/2019/10/tenda-leveline-blu.jpg" class="imgProdotto">
     </a>
-    <p>#nome#</p>
-    <p>#prezzo# &euro;</p>
-    <button type="submit" class="prodotto-pulsante" type="button" value="Aggiungi">Add to cart</button>
+    <p>Calate</p>
+      <p>#prezzo# &euro;</p>
+    <button class="prodotto-pulsante" type="button" value="Aggiungi" onclick="location.href='add-to-cart-servlet'">Add to cart</button>
   </div>
 </div>
 

@@ -109,7 +109,7 @@ public class Register extends HttpServlet {
 
                     userDAO.doSave(userBean);
                     CartDAO cartDAO = new CartDAO();
-                    CartBean cart =  new CartBean(userBean.getId());//riprende il carrello dell'utente
+                    CartBean cart =  new CartBean();//riprende il carrello dell'utente
                     HttpSession session = request.getSession();
                     session.setAttribute("user",userBean);
                     response.sendRedirect("index.jsp"); //Rimanda alla homepage
