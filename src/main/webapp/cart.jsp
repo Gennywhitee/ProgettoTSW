@@ -33,8 +33,8 @@
                 <p class="info-text"><%=object.getString("category")%></p>
                 <p class="info-text"><%=object.getString("price")%></p>
                 <p class="info-text"><%=object.getString("quantity")%></p>
-                <p class="info-button"><a href="show-product-servlet?ProductBeanId"><%=object.getInt("productID")%></a></p>
-                <p class="info-button"><a href="remove-from-cart-servlet?ProductCartBeanId"><%=object.getInt("cartID")%></a></p>
+                <p class="info-button"><a href="show-product-servlet?ProductBeanId=">Dettagli</a></p>
+                <p class="info-button"><a href="remove-from-cart-servlet">Rimuovi</a></p>
             </div>
         </div>
 

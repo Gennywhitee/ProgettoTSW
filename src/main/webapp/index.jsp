@@ -4,6 +4,7 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" href="photo/template/LogoNoBack.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Sartoria delle Tende</title>
@@ -59,3 +60,8 @@
     </br>
 <%@include file="footer.jsp"%>
 </body>
+</html>
+<!--       _
+.__(.)< (MEOW)
+\___)
+~~~~~~~~~~~~~~~~~~-->

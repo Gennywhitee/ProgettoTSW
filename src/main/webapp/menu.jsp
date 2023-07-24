@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+    <link rel="icon" href="photo/template/LogoScrittaBianca.png">
     <title>Menu</title>
     <link rel="stylesheet" type="text/css" href="style/menu.css">
     <script src='https://kit.fontawesome.com/c6b30e1924.js' crossorigin='anonymous'></script>

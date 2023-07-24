@@ -3,6 +3,7 @@
 <html lang="it-IT">
 <head>
 
+    <link rel="icon" href="photo/template/LogoNoBack.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Chi siamo</title>

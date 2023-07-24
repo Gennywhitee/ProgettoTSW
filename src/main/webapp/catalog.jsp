@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
-
-  <link rel="stylesheet" type="text/css" href="style/catalogo.css">
+  <link rel="icon" href="${pageContext.request.contextPath}/photo/template/LogoNoBack.png">
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style/catalogo.css">
   <title>Catalogo</title>
 </head>
 
@@ -16,8 +16,8 @@
       <img src="https://distefanobiancheriaperlacasa.com/wp-content/uploads/2019/10/tenda-leveline-blu.jpg" class="imgProdotto">
     </a>
     <p>Calate</p>
-      <p>#prezzo# &euro;</p>
-    <button class="prodotto-pulsante" type="button" value="Aggiungi" onclick="location.href='add-to-cart-servlet'">Add to cart</button>
+      <p>20&euro;</p>
+    <button class="prodotto-pulsante" type="button" value="Aggiungi" onclick="location.href='${pageContext.request.contextPath}/add-to-cart-servlet'">Add to cart</button>
   </div>
 </div>
 
