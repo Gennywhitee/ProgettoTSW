@@ -33,12 +33,11 @@ public class Login extends HttpServlet {
                response.sendRedirect("WEB-INF/Admin/adminHome.jsp");
 
            }
-           else{
-
-               CartBean cartBean = new CartBean();
+           else{//utente fa login
                CartDAO serviceCart = new CartDAO();
+               CartBean cartBean = serviceCart.getCart(userBean.getId()); //prendo il carrello dell'utente dal DB
 
-               cartBean.setCartList(serviceCart.getCart(userBean.getId()));
+
 
                session.setAttribute("cart", cartBean);
                session.setAttribute("user",userBean);

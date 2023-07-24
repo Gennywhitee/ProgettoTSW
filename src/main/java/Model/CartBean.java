@@ -3,17 +3,17 @@ package Model;
 import java.util.ArrayList;
 
 public class CartBean {
-
+    private int user;
     private int numberObject;
     private ArrayList<ProductCartBean> cartList;
 
-    public CartBean() {
+    public CartBean(int id) {
+        user = id;
         cartList = new ArrayList<>();
         numberObject = 0;
     }
 
     public int getNumberObject() {
-
         return numberObject;
     }
 
@@ -25,6 +25,9 @@ public class CartBean {
     public ArrayList<ProductCartBean> getCartList() {
 
         return cartList;
+    }
+    public int getCart(){
+        return user;
     }
 
     public void setCartList(ArrayList<ProductCartBean> cartList) {
