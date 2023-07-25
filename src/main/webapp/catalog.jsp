@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page import="Model.ProductBean" %>
+<%@ page import="java.util.ArrayList" %>
 <html lang="en">
 <head>
   <link rel="icon" href="${pageContext.request.contextPath}/photo/template/LogoNoBack.png">
@@ -7,19 +9,27 @@
 </head>
 
 <body >
+<% ArrayList<ProductBean> prodotti = (ArrayList<ProductBean>) request.getAttribute("prodotti");%>
 <%@include file="/menu.jsp"%>
+<%if( prodotti == null || prodotti.size() == 0){%>
+<div>Catalogo vuoto</div>
+<%} else{%>
 
+
+<%for(ProductBean product : prodotti){%>
 <div class="prodotto-body">
 
   <div class="prodotto">
-    <a href="show-product-servlet" target="_blank" >
-      <img src="https://distefanobiancheriaperlacasa.com/wp-content/uploads/2019/10/tenda-leveline-blu.jpg" class="imgProdotto">
-    </a>
-    <p>Calate</p>
-      <p>20&euro;</p>
+      <p class="product-images"><img src="<%=product.getImage()%>" class="imgProdotto"></p>
+      <p class="product-text"><%=product.getName()%></p>
+      <p class="product-text"><%=product.getPrice()%>&euro;</p>
+      <p class="product-text"><%=product.getCategory()%></p>
     <button class="prodotto-pulsante" type="button" value="Aggiungi" onclick="location.href='${pageContext.request.contextPath}/add-to-cart-servlet'">Add to cart</button>
+    <button class="prodotto-pulsante" type="button" value="Dettagli" onclick="location.href='${pageContext.request.contextPath}/WEB-INF/results/details.jsp'">Dettagli</button>
   </div>
 </div>
+    <%}%>
+<%}%>
 
 <%@include file="footer.jsp"%>
 

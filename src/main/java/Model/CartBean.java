@@ -3,6 +3,7 @@ package Model;
 import java.util.ArrayList;
 
 public class CartBean {
+    private int user;
     private int numberObject;
     private ArrayList<ProductCartBean> cartList;
 
@@ -10,6 +11,12 @@ public class CartBean {
         cartList = new ArrayList<>();
         numberObject = 0;
     }
+    public CartBean(int idUser){
+        user = idUser;
+        cartList = new ArrayList<>();
+        numberObject = 0;
+    }
+
 
     public int getNumberObject() {
         return numberObject;
@@ -23,6 +30,9 @@ public class CartBean {
     public ArrayList<ProductCartBean> getCartList() {
 
         return cartList;
+    }
+    public int getCart(){
+        return user;
     }
 
 

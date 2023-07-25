@@ -66,6 +66,10 @@ button{
     text-transform: uppercase; /* Trasforma il testo del pulsante in maiuscolo */
 }
 
+.product-text{
+    color: black;
+}
+
 /* Stili quando si passa sopra il pulsante */
 .prodotto-pulsante:hover { /* Cambia il colore di sfondo del pulsante al passaggio del mouse */
     transition: 0.3s; /* Aggiunge una transizione di 0.3 secondi */

@@ -25,8 +25,8 @@
         <div class="nav-menu-buttons">
             <input type="button" onclick="location.href='index.jsp'" value="HomePage">
             <i class="fa solid fa-home" onclick="location.href='index.jsp'"></i>
-            <input type="button" onclick="location.href='catalog.jsp'" value="Catalogo">
-            <i class="fa solid fa-book-open" onclick="location.href='catalog.jsp'"></i>
+            <input type="button" onclick="location.href='${pageContext.request.contextPath}/show-catalog-servlet'" value="Catalogo">
+            <i class="fa solid fa-book-open" onclick="location.href='${pageContext.request.contextPath}show-catalog-servlet'"></i>
             <input type="button" onclick="location.href='chiSiamo.jsp'" value="Chi Siamo">
             <i class="fa solid fa-circle-info" onclick="location.href='chiSiamo.jsp'"></i>
             <input type="button" onclick="location.href='cart.jsp'" value="Carrello">
