@@ -29,7 +29,7 @@ public class ShowDashboard extends HttpServlet {
             dispatcher.forward(request,response);
         }
         else{
-            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/errorPage.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/confirmPage.jsp");
             request.setAttribute("type","error");
             request.setAttribute("msg","Errore");
             request.setAttribute("redirect","index.jsp");

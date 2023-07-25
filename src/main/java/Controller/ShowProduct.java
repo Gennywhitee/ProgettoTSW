@@ -28,7 +28,7 @@ public class ShowProduct extends HttpServlet {
         ProductBean prodotto = productDAO.doRetrieveById(prodottoId);
 
         if (prodotto == null) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("errorPage.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("confirmPage.jsp");
             request.setAttribute("type", "alert");
             request.setAttribute("msg", "Prodotto non presente");
             request.setAttribute("redirect", "catalog.jsp");

@@ -141,5 +141,83 @@ function validateEditProfile(){
     }
 }
 
+function validateProdName(){
+    let prodName = document.getElementById("name").value
+    if (info_string.test(prodName)){
+        $("#name").css("border-color","#E5E5E5");
+        return true;
+    } else{
+        $("#name").css("border-color","#C92403");
+        return false;
+    }
+}
+
+function validateProdPrice(){
+    let prodPrice = document.getElementById("price").value
+    if (double_string.test(prodPrice)){
+        $("#price").css("border-color","#E5E5E5");
+        return true;
+    } else{
+        $("#price").css("border-color","#C92403");
+        return false;
+    }
+}
+
+function validateProdQuantity(){
+    let prodQuantity = document.getElementById("quantity").value
+    if (number_string.test(prodQuantity)){
+        $("#quantity").css("border-color","#E5E5E5");
+        return true;
+    } else{
+        $("#quantity").css("border-color","#C92403");
+        return false;
+    }
+}
+
+function validateProdDescription(){
+    let prodDesc = document.getElementById("description").value
+    if (holder_string.test(prodDesc)){
+        $("#description").css("border-color","#E5E5E5");
+        return true;
+    } else{
+        $("#description").css("border-color","#C92403");
+        return false;
+    }
+}
+
+function validateImage() {
+
+    if ($(".preview").attr("src") === "") {
+        $("label#imageUpload").css("color", "#C92403");
+        return false;
+    }
+    else {
+        $("label#imageUpload").css("color", "#E5E5E5");
+        return true;
+    }
+}
+function validateCategoryProduct() {
+
+    let category = document.getElementById("category").value;
+
+    if (category.length > 0 && category.length <= 20) {
+        $("#category").css("border-color", "#E5E5E5");
+        return true;
+    }
+    else {
+        $("#category").css("border-color", "#C92403");
+        return false;
+    }
+}
+
+
+function validateAddProduct(){
+    if(validateProdName() && validateProdPrice() && validateProdQuantity() && validateProdDescription() &&
+        validateImage() && validateCategoryProduct()){
+        return true;
+    }
+    return false;
+}
+
 
 

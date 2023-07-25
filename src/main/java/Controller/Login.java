@@ -50,10 +50,10 @@ public class Login extends HttpServlet {
 
        else if(userBean == null){ //caso in cui l'user non ha un account o password/email errata
            RequestDispatcher dispatcher;
-           dispatcher = request.getRequestDispatcher("errorPage.jsp");
+           dispatcher = request.getRequestDispatcher("confirmPage.jsp");
            request.setAttribute("type","alert");
            request.setAttribute("msg","E-Mail o Password errati");
-           request.setAttribute("redirect","WEB-INF/errorPage.jsp");
+           request.setAttribute("redirect","WEB-INF/confirmPage.jsp");
            dispatcher.include(request,response);
        }
        else{

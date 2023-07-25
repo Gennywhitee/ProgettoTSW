@@ -109,7 +109,7 @@ public class EditProfile extends HttpServlet {
                     response.sendRedirect("WEB-INF/user/user-profile.jsp");
                 }
             }else{ //Caso in cui count != 10
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/errorPage.jsp"); //redirezione a error.jsp
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/confirmPage.jsp"); //redirezione a error.jsp
                 request.setAttribute("type", "alert"); //settiamo il tipo e l'oggetto da passare alla pagina di errore
                 request.setAttribute("msg", "Errore modifica"); //settiamo il messagio con il contenuto
                 request.setAttribute("redirect", "user-profile-servlet"); //settiamo il redirect una volta finito il count di errorPage

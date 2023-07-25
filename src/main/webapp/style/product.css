@@ -1,0 +1,66 @@
+div.productCard {
+    display: inline-block;
+    background: #5B6A82;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 15px;
+    border: solid 1px #CCA43B;
+    text-align: center;
+    width: 600px;
+    min-height: 400px;
+}
+
+div.image > img {
+    height: 150px;
+}
+
+div.onSale {
+    color: #CCA43B;
+}
+
+input[type="number"] {
+    border-radius: 15px;
+    display: inline-block;
+    color: #0F1A20;
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+    background-color: #EEE5E9;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+input[type="button"] {
+    border-radius: 15px;
+    display: inline-block;
+    color: #0F1A20;
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+    background-color: #EEE5E9;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+input[type="button"]:hover {
+    background-color: #CCA43B;
+    color: #EEE5E9;
+}
+
+@media screen and (max-width: 1160px) {
+    div.productCard {
+        margin-top: 80px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    div.productCard {
+        display: block;
+        width: 100%;
+        margin-top: 80px;
+    }
+}
