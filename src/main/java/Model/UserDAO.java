@@ -138,6 +138,17 @@ public class UserDAO {
         }
     }
 
+    public void changeAdminStatus(boolean status,int id) {
+        try(Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("UPDATE Utente SET Utente.Admin =? WHERE ID_Utente=? ");
+            ps.setString(1,status+"");
+            ps.setInt(2,id);
+
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
     public void updateState(UserBean user) throws SQLException {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("UPDATE Utente SET Utente.Stato ='" +user.getStato() +"' WHERE ID_Utente=? ");

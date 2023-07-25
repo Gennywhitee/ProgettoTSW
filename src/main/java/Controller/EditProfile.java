@@ -104,7 +104,7 @@ public class EditProfile extends HttpServlet {
                 request.setAttribute("profileJSP", userBean); //settiamo una variabile nella risposta "profileJSP" che rappresenta userBean
 
                 if(userBean.isAdmin().equalsIgnoreCase("true")){
-                    response.sendRedirect("WEB-INF/admin/profile-admin.jsp"); //Se admin, rimanda alla jsp del profilo admin
+                    response.sendRedirect("WEB-INF/user/user-profile.jsp"); //Se admin, rimanda alla jsp del profilo admin
                 }else{
                     response.sendRedirect("WEB-INF/user/user-profile.jsp");
                 }

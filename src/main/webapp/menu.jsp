@@ -20,6 +20,21 @@
         url = "location.href='user-profile-servlet'";
     }
 %>
+<% if (myProfile != null && myProfile.isAdmin().equalsIgnoreCase("true")){ %>
+<div class="nav-menu">
+    <a href="index.jsp"><img src="${pageContext.request.contextPath}/photo/template/LogoScrittaBianca.png"></a>
+    <div class="nav-menu-buttons">
+        <input type="button" onclick="location.href='index.jsp'" value="HomePage">
+        <i class="fa solid fa-home" onclick="location.href='index.jsp'"></i>
+        <input type="button" onclick="location.href='${pageContext.request.contextPath}/show-catalog-servlet'" value="Catalogo">
+        <i class="fa solid fa-book-open" onclick="location.href='${pageContext.request.contextPath}show-catalog-servlet'"></i>
+        <input type="button" onclick="location.href='${pageContext.request.contextPath}/show-dashboard-servlet'" value="Dashboard">
+        <i class="fa solid fa-cart-shopping" onclick="location.href='${pageContext.request.contextPath}show-order-servlet'"></i>
+        <input type="button" onclick="<%=url%>" value="<%=name%>">
+        <i class="fa solid fa-user" onclick="<%=url%>"></i>
+    </div>
+</div>
+<%} else {%>
 <div class="nav-menu">
         <a href="index.jsp"><img src="${pageContext.request.contextPath}/photo/template/LogoScrittaBianca.png"></a>
         <div class="nav-menu-buttons">
@@ -35,6 +50,7 @@
             <i class="fa solid fa-user" onclick="<%=url%>"></i>
         </div>
 </div>
+<%}%>
 
 </body>
 </html>

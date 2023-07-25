@@ -31,7 +31,8 @@ public class Login extends HttpServlet {
 
 
            if(userBean.isAdmin().equalsIgnoreCase("true")){ //Admin fa il login
-               response.sendRedirect("WEB-INF/Admin/adminHome.jsp");
+               RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+               dispatcher.forward(request,response);
 
            }
            else{
@@ -52,7 +53,7 @@ public class Login extends HttpServlet {
            dispatcher = request.getRequestDispatcher("errorPage.jsp");
            request.setAttribute("type","alert");
            request.setAttribute("msg","E-Mail o Password errati");
-           request.setAttribute("redirect","errorPage.jsp");
+           request.setAttribute("redirect","WEB-INF/errorPage.jsp");
            dispatcher.include(request,response);
        }
        else{

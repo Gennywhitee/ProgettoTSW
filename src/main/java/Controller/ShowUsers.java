@@ -11,11 +11,15 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet(name = "showUserServlet", value = "/show-user-servlet")
+@WebServlet(name = "showUserServlet", value = "/show-users-servlet")
 public class ShowUsers extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
+
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
@@ -24,19 +28,11 @@ public class ShowUsers extends HttpServlet {
         UserBean currentUser = (UserBean) session.getAttribute("user");
         String address = "";
 
-        if (currentUser != null & currentUser.isAdmin().equalsIgnoreCase("true")) {
+        if (currentUser != null && currentUser.isAdmin().equalsIgnoreCase("true")) {
             UserDAO userService = new UserDAO();
-            try {
-                List<UserBean> userList = userService.doRetriveAllUsers();
-                request.setAttribute("userList", userList);
-                address = "/WEB-INF/results/show-userlist.jsp";
-            } catch (SQLException ex) {
-                request.setAttribute("type", "sqlError");
-                request.setAttribute("msg", "Errore durante il caricamento dal database");
-                request.setAttribute("redirect", "/index.jsp");
-                address = "/WEB-INF/results/confirmPage.jsp";
-                ex.printStackTrace();
-            }
+            List<UserBean> userList = userService.doRetriveAllUsers();
+            request.setAttribute("userList", userList);
+            address = "/WEB-INF/results/show-userlist.jsp";
         } else {
             request.setAttribute("type", "alert");
             request.setAttribute("msg", "Qualcosa è andato storto.");
