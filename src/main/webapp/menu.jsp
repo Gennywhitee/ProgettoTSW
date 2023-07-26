@@ -27,9 +27,9 @@
         <input type="button" onclick="location.href='index.jsp'" value="HomePage">
         <i class="fa solid fa-home" onclick="location.href='index.jsp'"></i>
         <input type="button" onclick="location.href='${pageContext.request.contextPath}/show-catalog-servlet'" value="Catalogo">
-        <i class="fa solid fa-book-open" onclick="location.href='${pageContext.request.contextPath}show-catalog-servlet'"></i>
+        <i class="fa solid fa-book-open" onclick="location.href='${pageContext.request.contextPath}/show-catalog-servlet'"></i>
         <input type="button" onclick="location.href='${pageContext.request.contextPath}/show-dashboard-servlet'" value="Dashboard">
-        <i class="fa solid fa-cart-shopping" onclick="location.href='${pageContext.request.contextPath}show-order-servlet'"></i>
+        <i class="fa solid fa-cart-shopping" onclick="location.href='${pageContext.request.contextPath}/show-order-servlet'"></i>
         <input type="button" onclick="<%=url%>" value="<%=name%>">
         <i class="fa solid fa-user" onclick="<%=url%>"></i>
     </div>

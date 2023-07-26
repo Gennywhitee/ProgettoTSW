@@ -25,7 +25,7 @@
     </tr>
     <tr>
       <td>
-        <form action="./cart" method="post">
+        <form action="show-catalog-servlet" method="post">
           <input type="hidden" name="action" value="comeBack">
           <button type="submit" class="btn return-btn" type="button"  value="Come Back to Catalog">Come Back to Catalog</button>
         </form>

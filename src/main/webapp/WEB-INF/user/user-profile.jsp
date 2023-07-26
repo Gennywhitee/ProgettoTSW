@@ -18,10 +18,8 @@
 
 <%@ include file="/menu.jsp"%>
 
-<% UserBean profileJSP = (UserBean) request.getAttribute("profileJSP");
-if (profileJSP == null) { %>
-    <p>Utente non trovato</p>
-<%} else {%>
+<% UserBean profileJSP = (UserBean) request.getAttribute("profileJSP");%>
+
 <div class="edit-form">
     <form action="edit-profile-servlet" method="post" id="edit-profile">
         <div class="container">
@@ -68,6 +66,8 @@ if (profileJSP == null) { %>
                 <input type="text" class="register" id="indirizzo" name="indirizzo" placeholder="<%=profileJSP.getIndirizzo()%>" value="<%=profileJSP.getIndirizzo()%>">
             </div>
         </div>
+        <%UserBean currentUser = (UserBean) request.getSession().getAttribute("user");
+        if(profileJSP.getId() == currentUser.getId()){%>
 
         <div class="login-button">
             <input type="button" onclick="validateEditProfile()" value="Salva">
@@ -75,9 +75,21 @@ if (profileJSP == null) { %>
         <div class="login-button">
             <input type="button" onclick="location.href='logout-servlet'" value="Logout">
         </div>
+        <% } else { %>
+        <% if(profileJSP.isAdmin().equalsIgnoreCase("false")){ %>
+        <div class="login-button">
+            <input type="button" onclick="location.href='set-admin-servlet'" value="Rendi Amministratore">
+        </div>
+        <% } else { %>
+        <div class="login-button">
+            <input type="button" onclick="location.href='set-not-admin-servlet'" value="Rimuovi da Amministratore">
+        </div>
+        <%}%>
+    <%}%>
+
     </form>
 </div>
-<%}%>
+
 
 </body>
 </html>
