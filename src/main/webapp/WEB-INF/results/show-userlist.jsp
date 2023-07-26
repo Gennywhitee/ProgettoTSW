@@ -58,7 +58,7 @@
                     }
                 %>
                 <div class="list-col list-button"><a onclick="changeAdminStatus(this)" id="<%=tmpUser.getId()%>" style="color: <%=textColor%>">Admin</a></div>
-                <div class="list-col list-button"><a href="user-info-servlet?userId=<%=tmpUser.getId()%>">Info</a></div>
+                <div class="list-col list-button"><a href="user-profile-servlet?userId=<%=tmpUser.getId()%>">Info</a></div>
             </div>
         </div>
     </div>

@@ -38,8 +38,13 @@ public class AddToCart extends HttpServlet {
             for (ProductCartBean product : cartBean.getCartList()) {
                 serviceCart.doSave(user.getId(), product.getId(), product.getQuantity());
             }
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/confirmPage.jsp");
+            request.setAttribute("type","success");
+            request.setAttribute("msg","Inserimento avvenuto con successo");
+            request.setAttribute("redirect","/show-catalog-servlet");
+            dispatcher.forward(request,response);
         }
 
-        session.setAttribute("cart", cartBean);
     }
 }

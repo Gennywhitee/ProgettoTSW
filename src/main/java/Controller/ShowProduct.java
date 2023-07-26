@@ -9,7 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+
 
 import java.io.IOException;
 
@@ -23,7 +23,7 @@ public class ShowProduct extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
-        int prodottoId = Integer.parseInt(request.getParameter("prodottoId"));
+        int prodottoId = Integer.parseInt(request.getParameter("productId"));
         ProductDAO productDAO = new ProductDAO();
 
         ProductBean prodotto = productDAO.doRetrieveById(prodottoId);
@@ -38,7 +38,7 @@ public class ShowProduct extends HttpServlet {
         }
         else {
             request.setAttribute("prodotto",prodotto);
-            dispatcher = request.getRequestDispatcher("WEB-INF/result/details.jsp");
+            dispatcher = request.getRequestDispatcher("<%=>/WEB-INF/results/details.jsp");
             dispatcher.forward(request,response);
         }
     }

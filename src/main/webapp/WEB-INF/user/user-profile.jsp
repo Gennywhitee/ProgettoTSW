@@ -19,7 +19,6 @@
 <%@ include file="/menu.jsp"%>
 
 <% UserBean profileJSP = (UserBean) request.getAttribute("profileJSP");
-
 if (profileJSP == null) { %>
     <p>Utente non trovato</p>
 <%} else {%>

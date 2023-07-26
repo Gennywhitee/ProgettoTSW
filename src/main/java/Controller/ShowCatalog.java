@@ -29,7 +29,7 @@ public class ShowCatalog extends HttpServlet {
 
         request.setAttribute("prodotti",productList);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/catalog.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/catalog.jsp");
         dispatcher.forward(request,response);
     }
 }

@@ -32,19 +32,19 @@ public class UserInfo extends HttpServlet {
 
 
             if(user == null){
-                RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/confirmPage.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/confirmPage.jsp");
                 request.setAttribute("type","alert");
                 request.setAttribute("msg","Utente non trovato nel DB");
                 request.setAttribute("redirect",request.getContextPath());
                 dispatcher.forward(request,response);
             }else {
                 request.setAttribute("ProfileJSP", user); //setta un attributo nella richiesta con l'utente scelto
-                RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/user/user-profile.jsp"); //crea il dispatcher con il path alla jsp che deve essere visualizzata
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/user/user-profile.jsp"); //crea il dispatcher con il path alla jsp che deve essere visualizzata
                 dispatcher.forward(request, response); //forward al path precendentemente inserito
             }
         }
         else{
-            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/confirmPage.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/confirmPage.jsp");
             request.setAttribute("type","alert");
             request.setAttribute("msg","Errore");
             request.setAttribute("redirect","/index.jsp");

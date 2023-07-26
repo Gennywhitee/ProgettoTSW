@@ -20,7 +20,7 @@ public class UserProfile extends HttpServlet {
         request.setAttribute("profileJSP", user);
 
         if (user != null) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/user/user-profile.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/user/user-profile.jsp");
             dispatcher.include(request, response);
         }
     }

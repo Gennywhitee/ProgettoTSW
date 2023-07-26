@@ -46,7 +46,7 @@ public class Login extends HttpServlet {
                RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/confirmPage.jsp");
                request.getSession().setAttribute("cart", cartBean);
                request.getSession().setAttribute("user", userBean);
-               request.setAttribute("type","success-login");
+               request.setAttribute("type","success");
                request.setAttribute("msg","Login avvenuto con successo");
                request.setAttribute("redirect","/login.jsp");
                dispatcher.forward(request,response);
@@ -57,7 +57,7 @@ public class Login extends HttpServlet {
        else if(userBean == null){ //caso in cui l'user non ha un account o password/email errata
            RequestDispatcher dispatcher;
            dispatcher = request.getRequestDispatcher("WEB-INF/confirmPage.jsp");
-           request.setAttribute("type","login-error");
+           request.setAttribute("type","alert");
            request.setAttribute("msg","E-mail o Password errati");
            request.setAttribute("redirect","/login.jsp");
            dispatcher.forward(request,response);
@@ -65,7 +65,7 @@ public class Login extends HttpServlet {
        else{
            RequestDispatcher dispatcher;
            dispatcher = request.getRequestDispatcher("WEB-INF/confirmPage.jsp");
-           request.setAttribute("type","login-error");
+           request.setAttribute("type","alert");
            request.setAttribute("msg","Errore generico");
            request.setAttribute("redirect","/login.jsp");
            dispatcher.forward(request,response);
