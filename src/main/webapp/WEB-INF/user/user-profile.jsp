@@ -18,9 +18,11 @@
 
 <%@ include file="/menu.jsp"%>
 
-<% UserBean profileJSP = (UserBean) request.getAttribute("profileJSP");%>
+<% UserBean profileJSP = (UserBean) request.getAttribute("profileJSP");
 
-
+if (profileJSP == null) { %>
+    <p>Utente non trovato</p>
+<%} else {%>
 <div class="edit-form">
     <form action="edit-profile-servlet" method="post" id="edit-profile">
         <div class="container">
@@ -28,7 +30,7 @@
                 <label class="text-section">Dati personali</label>
 
                 <label for="nome" class="login-text">Nome</label>
-                <input type="text" class="register" id="nome" name="nome" placeholder="<%=profileJSP.getNome()%>" value="<%=profileJSP.getNome()%>"> <%--profileJSP vairabile userBean--%>
+                <input type="text" class="register" id="nome" name="nome" placeholder="<%=profileJSP.getNome()%>" value="<%=profileJSP.getNome()%>">
 
                 <label for="cognome" class="login-text">Cognome</label>
                 <input type="text" class="register" id="cognome" name="cognome" placeholder=<%=profileJSP.getCognome()%>" value="<%=profileJSP.getCognome()%>">
@@ -76,6 +78,7 @@
         </div>
     </form>
 </div>
+<%}%>
 
 </body>
 </html>

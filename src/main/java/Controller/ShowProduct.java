@@ -16,30 +16,30 @@ import java.io.IOException;
 @WebServlet(name = "showProductServlet", value = "/show-product-servlet")
 public class ShowProduct extends HttpServlet {
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
+    @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
-        HttpSession session = request.getSession();
-
         int prodottoId = Integer.parseInt(request.getParameter("prodottoId"));
         ProductDAO productDAO = new ProductDAO();
-        UserBean user = (UserBean) session.getAttribute("user");
 
         ProductBean prodotto = productDAO.doRetrieveById(prodottoId);
 
+        RequestDispatcher dispatcher;
         if (prodotto == null) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("confirmPage.jsp");
+            dispatcher = request.getRequestDispatcher("confirmPage.jsp");
             request.setAttribute("type", "alert");
             request.setAttribute("msg", "Prodotto non presente");
             request.setAttribute("redirect", "catalog.jsp");
-            dispatcher.include(request, response);
-        } else {
-            session.setAttribute("prodotto", prodotto);
-            if (user.isAdmin().equalsIgnoreCase("true")) {
-                response.sendRedirect("WEB-INF/results/productInfo.jsp");
-            } else {
-                response.sendRedirect("WEB-INF/results/details.jsp");
-            }
+            dispatcher.forward(request, response);
+        }
+        else {
+            request.setAttribute("prodotto",prodotto);
+            dispatcher = request.getRequestDispatcher("WEB-INF/result/details.jsp");
+            dispatcher.forward(request,response);
         }
     }
 }

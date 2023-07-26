@@ -24,8 +24,8 @@
       <p class="product-text"><%=product.getName()%></p>
       <p class="product-text"><%=product.getPrice()%>&euro;</p>
       <p class="product-text"><%=product.getCategory()%></p>
-    <button class="prodotto-pulsante" type="button" value="Aggiungi" onclick="location.href='${pageContext.request.contextPath}/add-to-cart-servlet'">Add to cart</button>
-    <button class="prodotto-pulsante" type="button" value="Dettagli" onclick="location.href='${pageContext.request.contextPath}/WEB-INF/results/details.jsp'">Dettagli</button>
+    <button class="prodotto-pulsante" type="button" value="Aggiungi" onclick="location.href='${pageContext.request.contextPath}/add-to-cart-servlet?productId=<%=product.getId()%>'">Add to cart</button>
+    <button class="prodotto-pulsante" type="button" value="Dettagli" onclick="location.href='${pageContext.request.contextPath}/show-product-servlet?productId=<%=product.getId()%>'">Dettagli</button>
   </div>
 </div>
     <%}%>

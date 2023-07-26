@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
 
 @WebServlet(name = "showUserServlet", value = "/show-users-servlet")
 public class ShowUsers extends HttpServlet {
@@ -30,7 +30,8 @@ public class ShowUsers extends HttpServlet {
 
         if (currentUser != null && currentUser.isAdmin().equalsIgnoreCase("true")) {
             UserDAO userService = new UserDAO();
-            List<UserBean> userList = userService.doRetriveAllUsers();
+            ArrayList<UserBean> userList = userService.doRetriveAllUsers();
+
             request.setAttribute("userList", userList);
             address = "/WEB-INF/results/show-userlist.jsp";
         } else {

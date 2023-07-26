@@ -170,9 +170,9 @@ public class UserDAO {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement("SELECT * FROM Utente ORDER BY ID_Utente");
 
-            ArrayList<UserBean> listUsers = new ArrayList<UserBean>();
+            ArrayList<UserBean> listUsers = new ArrayList<>();
             ResultSet rs = ps.executeQuery();
-            while (!rs.next()) {
+            while (rs.next()) {
                 UserBean user = new UserBean();
                 user.setId(rs.getInt(1));
                 user.setNome(rs.getString(2));

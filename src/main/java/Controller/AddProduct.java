@@ -129,7 +129,7 @@ public class AddProduct extends HttpServlet {
 
         } else {
 
-            String address = "/WEB-INF/results/products.jsp";
+            String address = "/catalog.jsp";
             RequestDispatcher dispatcher = request.getRequestDispatcher(address);
             dispatcher.forward(request,response);
         }

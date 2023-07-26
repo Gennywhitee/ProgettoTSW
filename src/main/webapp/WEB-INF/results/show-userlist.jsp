@@ -1,5 +1,5 @@
 <%@ page import="Model.UserBean" %>
-<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -31,7 +31,6 @@
 <body>
 <div class="title-container" style="display: block">
     <h1 class="title">Gestione Utenti</h1>
-    <p class="subtitle">Visualizza o modifica le informazioni degli utenti registrati.</p>
 </div>
 <div class="list-container">
     <div class="list-header">
@@ -40,8 +39,8 @@
         <div class="list-col">COGNOME</div>
         <div class="list-col"></div>
     </div>
-    <%
-        List<UserBean> userList = (List<UserBean>) request.getAttribute("userList");
+    <% @SuppressWarnings("unchecked")
+        ArrayList<UserBean> userList = (ArrayList<UserBean>) request.getAttribute("userList");
         if (userList != null && !userList.isEmpty()){
             for (UserBean tmpUser : userList){%>
     <div class="list-item">

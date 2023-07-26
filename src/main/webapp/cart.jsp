@@ -12,7 +12,7 @@
 <% CartBean cart = (CartBean) request.getAttribute("cart");
         if(cart == null || cart.getNumberObject() == 0){%>
 
-    <a href="catalog.jsp"><p>Il carrello è vuoto</p></br>Vai al Catalogo</a>
+    <a href="show-catalog-servlet"><p>Il carrello è vuoto</p></br>Vai al Catalogo</a>
 
 <%}
         else {
