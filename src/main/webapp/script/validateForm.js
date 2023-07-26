@@ -214,6 +214,7 @@ function validateCategoryProduct() {
 function validateAddProduct(){
     if(validateProdName() && validateProdPrice() && validateProdQuantity() && validateProdDescription() &&
         validateImage() && validateCategoryProduct()){
+        document.getElementById("add-product-form").submit();
         return true;
     }
     return false;

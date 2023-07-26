@@ -32,14 +32,14 @@
 }
 
 .action-card:hover{
-    border: 4px solid #E5383B;
+    border: 4px solid #141414;
     transition: all .2s,-webkit-box-shadow .2s;
 }
 
 .image-card{
     margin: 0;
-    max-width: 20%;
-    max-height: 20%;
+    max-width: 22%;
+    max-height: 22%;
     display: block;
     object-fit: contain;
 }

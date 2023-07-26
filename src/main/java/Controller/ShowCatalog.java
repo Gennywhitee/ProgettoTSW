@@ -29,6 +29,7 @@ public class ShowCatalog extends HttpServlet {
 
         request.setAttribute("prodotti",productList);
 
-        response.sendRedirect("catalog.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/catalog.jsp");
+        dispatcher.forward(request,response);
     }
 }

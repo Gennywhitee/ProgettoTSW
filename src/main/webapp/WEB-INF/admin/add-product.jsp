@@ -4,7 +4,11 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style/add-product.css">
-    <link rel="script" href="${pageContext.request.contextPath}/script/validateForm.js">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/script/validateForm.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/2f266e86a2.js" crossorigin="anonymous"></script>
+
+
     <title>Aggiungi Prodotto</title>
 
     <script>
@@ -37,7 +41,7 @@
 
                 <div class="product-price">
                     <label for="price">Prezzo</label>
-                    <input type="text" id="price" name="price" class="product" placeholder="Prezzo" pattern="^[1-9]\d*(\.\d+)?$" required>
+                    <input type="text" id="price" class="product" name="price" placeholder="Prezzo" pattern="^[1-9]\d*(\.\d+)?$" required>
                 </div>
 
                 <div class="product-quantity">

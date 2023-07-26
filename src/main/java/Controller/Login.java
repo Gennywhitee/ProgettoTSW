@@ -42,23 +42,33 @@ public class Login extends HttpServlet {
 
                cartBean.setCartList(serviceCart.getCart(userBean.getId()));
 
-               session.setAttribute("cart", cartBean);
-               session.setAttribute("user",userBean);
-               response.sendRedirect("index.jsp");
+
+               RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/confirmPage.jsp");
+               request.getSession().setAttribute("cart", cartBean);
+               request.getSession().setAttribute("user", userBean);
+               request.setAttribute("type","success-login");
+               request.setAttribute("msg","Login avvenuto con successo");
+               request.setAttribute("redirect","/login.jsp");
+               dispatcher.forward(request,response);
+
            }
        }
 
        else if(userBean == null){ //caso in cui l'user non ha un account o password/email errata
            RequestDispatcher dispatcher;
-           dispatcher = request.getRequestDispatcher("confirmPage.jsp");
-           request.setAttribute("type","alert");
-           request.setAttribute("msg","E-Mail o Password errati");
-           request.setAttribute("redirect","WEB-INF/confirmPage.jsp");
-           dispatcher.include(request,response);
+           dispatcher = request.getRequestDispatcher("WEB-INF/confirmPage.jsp");
+           request.setAttribute("type","login-error");
+           request.setAttribute("msg","E-mail o Password errati");
+           request.setAttribute("redirect","/login.jsp");
+           dispatcher.forward(request,response);
        }
        else{
-            response.sendRedirect("index.jsp");
-        }
-
+           RequestDispatcher dispatcher;
+           dispatcher = request.getRequestDispatcher("WEB-INF/confirmPage.jsp");
+           request.setAttribute("type","login-error");
+           request.setAttribute("msg","Errore generico");
+           request.setAttribute("redirect","/login.jsp");
+           dispatcher.forward(request,response);
+       }
     }
 }

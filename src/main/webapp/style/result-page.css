@@ -1,0 +1,141 @@
+.result-container{
+    width: 70%;
+    padding: 25px;
+    display: block;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+#result-title-container{
+    width: 100%;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+
+@media all and (max-width: 1440px) and (min-width: 426px){
+    .result-container{
+        width: 100%;
+        padding: 20px;
+    }
+    #result-title{
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .result-container{
+        width: 100%;
+        padding: 20px;
+    }
+
+    #result-title-container{
+        width: 100%;
+        word-wrap: break-word;
+        word-break: break-word;
+    }
+    #result-title{
+        font-size: 2.3rem !important;
+        margin: 0;
+        padding: 0;
+    }
+
+    #message-container{
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    #result-message{
+        text-align: center;
+        width: 90%;
+        padding: 10px;
+        word-wrap: break-word;
+        word-break: break-word;
+    }
+}
+
+
+
+.button-container{
+    font-size: 1.4rem;
+    justify-content: center;
+    display: flex;
+    color: white;
+}
+
+.button-container ul{
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 20px;
+    text-align:center;
+}
+
+.button-container ul li{
+    display:block;
+}
+.button-container a{
+    color: white;
+    transition: all .2s;
+}
+.button-container a:hover{
+    color: lightgrey;
+}
+
+.redirect-container ul{
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 20px;
+    text-align:center;
+}
+body{
+    background-color: #bbbbbb;
+}
+
+.redirect-container ul li{
+    display:block;
+    color: #141414;
+}
+.redirect-container a{
+    color: white;
+    transition: all .2s;
+}
+.redirect-container a:hover{
+    color: #5B6A82;
+}
+
+#result-title{
+    font-family: sans-serif;
+    font-size: 2.5rem;
+    color: #141414;
+    margin: 0 auto;
+    text-align: start;
+}
+
+#result-message{
+    color: #141414;
+    font-size: calc(25px + 0.390625vw);
+    display: inline-block;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+#next{
+    margin: 0 auto;
+    width: min-content;
+    color: #141414;
+    padding: 10px;
+    background-color: white;
+    border: 3px solid #5B6A82;
+    border-radius: 10px;
+}
+
+#next:hover{
+    color: white;
+    background-color: #CCA43B;
+    transition: all .2s;
+}
+.timer{
+    color: #141414;
+    font-weight: bold;
+}

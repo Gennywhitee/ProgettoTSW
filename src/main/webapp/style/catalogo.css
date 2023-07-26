@@ -61,6 +61,7 @@ button{
     color: black; /* Imposta il colore del testo a nero */
     width: 100%; /* Imposta la larghezza del pulsante al 100% */
     padding: 10px; /* Aggiunge un padding di 10px al contenuto del pulsante */
+    margin-bottom: 5px;
     bottom: 50px; /* Posiziona il pulsante a 50px dal fondo del prodotto */
     justify-content: space-around; /* Aggiunge uno spazio uniforme attorno al contenuto del pulsante */
     text-transform: uppercase; /* Trasforma il testo del pulsante in maiuscolo */

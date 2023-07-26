@@ -53,27 +53,28 @@ public class AddProduct extends HttpServlet {
             int count = 0;
 
 
-            String name = request.getParameter("nomeProdotto");
+            String name = request.getParameter("name");
             if (name.length() != 0 && name.length() <= 30)
                 count++;
+            System.out.println(name);
 
-            String quantity = request.getParameter("quantita");
+            String quantity = request.getParameter("quantity");
             matcher = int_String.matcher(quantity);
             matchFound = matcher.find();
             if (matchFound)
                 count++;
 
-            String price = request.getParameter("prezzoProdotto");
+            String price = request.getParameter("price");
             matcher = decimal_String.matcher(price);
             matchFound = matcher.find();
             if (matchFound)
                 count++;
 
-            String category = request.getParameter("categoriaProdotto");
+            String category = request.getParameter("category");
             if (category.length() <= 20 && category.length() != 0)
                 count++;
 
-            String description = request.getParameter("descrizione");
+            String description = request.getParameter("description");
             if (description.length() <= 255 && category.length() != 0)
                 count++;
 
@@ -117,7 +118,7 @@ public class AddProduct extends HttpServlet {
                     request.setAttribute("redirect", "add-product-servlet");
                     dispatcher.include(request, response);
                 } else {
-                    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/error.jsp");
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/confirmPage.jsp");
                     request.setAttribute("type", "alert");
                     request.setAttribute("msg", "Errore inserimento");
                     request.setAttribute("redirect", "add-product-servlet");

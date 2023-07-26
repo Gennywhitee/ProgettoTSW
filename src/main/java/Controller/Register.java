@@ -4,6 +4,8 @@ import Model.CartBean;
 import Model.CartDAO;
 import Model.UserBean;
 import Model.UserDAO;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -26,7 +28,11 @@ public class Register extends HttpServlet {
 
         try {
             if(userDAO.isAlreadyRegistered(email)){ //eMail già esistente
-                response.sendRedirect("login.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/confirmPage.jsp");
+                request.setAttribute("type","error-registration");
+                request.setAttribute("msg","Email già presente");
+                request.setAttribute("redirect", "/login.jsp");
+                dispatcher.forward(request,response);
 
             } else{ //Controllo lato server tramite espressioni regolari definite in basso
                 int count = 0;
@@ -108,17 +114,26 @@ public class Register extends HttpServlet {
 
 
                     userDAO.doSave(userBean);
-                    CartDAO cartDAO = new CartDAO();
-                    CartBean cart =  new CartBean();//riprende il carrello dell'utente
-                    HttpSession session = request.getSession();
-                    session.setAttribute("user",userBean);
-                    response.sendRedirect("index.jsp"); //Rimanda alla homepage
+
+                    CartBean cart =  new CartBean();
+
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/confirmPage.jsp");
+                    request.setAttribute("user",userBean);
+                    request.setAttribute("cart",cart);
+                    request.setAttribute("type","success-registration");
+                    request.setAttribute("msg","Registrazione effettuata con successo");
+                    request.setAttribute("redirect","/index.jsp");
+                    dispatcher.forward(request,response);
                 }
-
-
-
-               }
-        } catch (IOException e) {
+                else{
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/confirmPage.jsp");
+                    request.setAttribute("type","error-registration");
+                    request.setAttribute("msg","Errore nella registrazione");
+                    request.setAttribute("redirect","/index.jsp");
+                    dispatcher.forward(request,response);
+                }
+            }
+        } catch (IOException | ServletException e) {
             throw new RuntimeException(e);
         }
     }
