@@ -1,6 +1,6 @@
 /* Stili per l'immagine del prodotto */
 .imgProdotto {
-    width: 100%; /* Imposta la larghezza dell'immagine al 100% */
+    width: max-content; /* Imposta la larghezza dell'immagine al 100% */
     aspect-ratio: 1/1; /* Imposta il rapporto di aspetto dell'immagine a 1:1 (quadrata) */
     object-fit: cover; /* Rende l'immagine adatta al riquadro senza distorsioni */
     max-width: 100%; /* l'immagine non supera la larghezza del suo contenitore */

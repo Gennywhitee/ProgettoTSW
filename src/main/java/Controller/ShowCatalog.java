@@ -1,9 +1,6 @@
 package Controller;
 
-import Model.CategoryBean;
-import Model.CategoryDAO;
-import Model.ProductBean;
-import Model.ProductDAO;
+import Model.*;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -23,13 +20,23 @@ public class ShowCatalog extends HttpServlet {
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
+        HttpSession session = request.getSession();
+
+        UserBean currentUser = (UserBean) session.getAttribute("user");
 
         ProductDAO productDAO = new ProductDAO();
         ArrayList<ProductBean> productList = productDAO.doRetrieveAll();
 
         request.setAttribute("prodotti",productList);
+        if(currentUser != null && currentUser.isAdmin().equalsIgnoreCase("true")){
+            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/admin/show-products.jsp");
+            dispatcher.forward(request,response);
+        }
+        else{
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/catalog.jsp");
+            dispatcher.forward(request,response);
+        }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/catalog.jsp");
-        dispatcher.forward(request,response);
+
     }
 }

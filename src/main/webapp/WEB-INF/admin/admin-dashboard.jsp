@@ -18,7 +18,7 @@
              <i class="fa-solid fa-square-plus" style="color: #000000;"></i>
              <p class="text-card">Aggiungi Prodotto</p>
          </div>
-         <div class="action-card" onclick="location.href='${pageContext.request.contextPath}/show-order-servlet'">
+         <div class="action-card" onclick="location.href='${pageContext.request.contextPath}/show-orders-servlet'">
              <i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i>
              <p class="text-card">Visualizza Ordini</p>
          </div>

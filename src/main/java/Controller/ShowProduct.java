@@ -36,9 +36,10 @@ public class ShowProduct extends HttpServlet {
             request.setAttribute("redirect", "catalog.jsp");
             dispatcher.forward(request, response);
         }
-        else {
+        else { //Controllo se admin e invece di portare a add to cart, porta a edit-product
+
             request.setAttribute("prodotto",prodotto);
-            dispatcher = request.getRequestDispatcher("<%=>/WEB-INF/results/details.jsp");
+            dispatcher = request.getRequestDispatcher("/WEB-INF/results/details.jsp");
             dispatcher.forward(request,response);
         }
     }

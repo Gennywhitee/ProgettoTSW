@@ -82,7 +82,7 @@
         </div>
         <% } else { %>
         <div class="login-button">
-            <input type="button" onclick="location.href='set-not-admin-servlet'" value="Rimuovi da Amministratore">
+            <input type="button" onclick="location.href='set-admin-servlet?userId=<%=profileJSP.getId()%>'" value="Rimuovi da Amministratore">
         </div>
         <%}%>
     <%}%>

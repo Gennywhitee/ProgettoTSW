@@ -5,7 +5,7 @@
 <head>
     <link rel="icon" href="${pageContext.request.contextPath}/photo/template/LogoNoBack.png">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style/catalogo.css">
-    <title>Catalogo</title>
+    <title>Lista Prodotti</title>
 </head>
 
 <body >
@@ -27,7 +27,6 @@ ArrayList<ProductBean> prodotti = (ArrayList<ProductBean>) request.getAttribute(
         <p class="product-text">Prezzo: <%=product.getPrice()%>&euro;</p>
         <p class="product-text">Categoria: <%=product.getCategory()%></p>
         <p class="product-text" id="count">Quantita: <%=product.getQuantity()%></p>
-        <button class="prodotto-pulsante" type="button" value="Aggiungi" onclick="location.href='${pageContext.request.contextPath}/add-to-cart-servlet?productId=<%=product.getId()%>&quantity=1'">Add to cart</button>
         <button class="prodotto-pulsante" type="button" value="Dettagli" onclick="location.href='${pageContext.request.contextPath}/show-product-servlet?productId=<%=product.getId()%>'">Dettagli</button>
     </div>
     <%}%>
@@ -35,7 +34,7 @@ ArrayList<ProductBean> prodotti = (ArrayList<ProductBean>) request.getAttribute(
 
 <%}%>
 
-<%@include file="../footer.jsp"%>
+<%@include file="/footer.jsp"%>
 
 </body>
 </html>
