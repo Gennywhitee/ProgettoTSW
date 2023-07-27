@@ -3,7 +3,6 @@ package Controller;
 import Model.OrderBean;
 import Model.OrderDAO;
 import Model.UserBean;
-import Model.UserDAO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -31,7 +30,6 @@ public class ShowOrders extends HttpServlet {
         RequestDispatcher dispatcher;
 
         if(currentUser != null && currentUser.isAdmin().equalsIgnoreCase("true")){
-            System.out.println("Entrato nell'if "+ currentUser.getNome());
             OrderDAO serviceOrder = new OrderDAO();
             ArrayList<OrderBean> orderList = serviceOrder.doRetrieveAll();
             request.setAttribute("orderList",orderList);
@@ -40,7 +38,16 @@ public class ShowOrders extends HttpServlet {
             dispatcher = request.getRequestDispatcher("/WEB-INF/admin/show-orders.jsp");
             dispatcher.forward(request,response);
         }
-        else {
+        else if(currentUser != null) {
+            OrderDAO service = new OrderDAO();
+            ArrayList<OrderBean> orderUserList = service.doRetrieveById(currentUser.getId());
+            request.setAttribute("orderList",orderUserList);
+            request.setAttribute("type","success");
+            request.setAttribute("msg","Vedraii tuoi ordini");
+            dispatcher = request.getRequestDispatcher("/WEB-INF/user/user-orders.jsp");
+            dispatcher.forward(request,response);
+        }
+        else{
             request.setAttribute("type","alert");
             request.setAttribute("msg","Errore");
             request.setAttribute("redirect","/index.jsp");

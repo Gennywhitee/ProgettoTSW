@@ -40,7 +40,6 @@ input[type="password"], input[type="tel"] {
     margin-top: 10px;
     background-color:transparent;
     color: #CCA43B;
-    border-top: black;
     border-radius: 4px;
     cursor: pointer;
     font-size: math;
@@ -93,7 +92,6 @@ span{
     margin-top: 10px;
     background-color: #5B6A82;
     color: #fff;
-    border-top: black;
     border-radius: 4px;
     cursor: pointer;
     font-size: math;

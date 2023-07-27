@@ -44,8 +44,8 @@
             <i class="fa solid fa-book-open" onclick="location.href='${pageContext.request.contextPath}show-catalog-servlet'"></i>
             <input type="button" onclick="location.href='chiSiamo.jsp'" value="Chi Siamo">
             <i class="fa solid fa-circle-info" onclick="location.href='chiSiamo.jsp'"></i>
-            <input type="button" onclick="location.href='cart.jsp'" value="Carrello">
-            <i class="fa solid fa-cart-shopping" onclick="location.href='cart.jsp'"></i>
+            <input type="button" onclick="location.href='show-cart-servlet'" value="Carrello">
+            <i class="fa solid fa-cart-shopping" onclick="location.href='show-cart-servlet'"></i>
             <input type="button" onclick="<%=url%>" value="<%=name%>">
             <i class="fa solid fa-user" onclick="<%=url%>"></i>
         </div>

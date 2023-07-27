@@ -34,7 +34,7 @@ public class OrderInfo extends HttpServlet {
             OrderDAO orderDAO = new OrderDAO();
             OrderBean orderBean = orderDAO.doRetrieveByIdOrder(orderId);
 
-            if(currentUser.isAdmin().equalsIgnoreCase("false") || currentUser.getId() != orderBean.getUser()){
+            if(currentUser.isAdmin().equalsIgnoreCase("false") && currentUser.getId() != orderBean.getUser()){
                 path="/index.jsp";
                 request.setAttribute("type","alert");
                 request.setAttribute("msg","Non puoi visualizzare gli ordini di altri utenti");
@@ -52,11 +52,10 @@ public class OrderInfo extends HttpServlet {
                     ArrayList<ProductBean> catalogo = productDAO.doRetrieveAll();
                     OrderProductDAO orderProductDAO = new OrderProductDAO();
                     ArrayList<OrderProductBean> prodottiOrdine = orderProductDAO.doRetrieveById(orderId);
-                    path="/WEB-INF/results/order-details.jsp";
+                    dispatcher = request.getRequestDispatcher("/WEB-INF/results/order-details.jsp");
                     request.setAttribute("catalog",catalogo);
                     request.setAttribute("prodottiOrdine",prodottiOrdine);
                     request.setAttribute("type","success");
-                    request.setAttribute("redirect",path);
                     }
                 }
             }

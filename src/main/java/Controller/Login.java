@@ -1,7 +1,6 @@
 package Controller;
 
 import Model.*;
-
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -15,60 +14,66 @@ import java.util.ArrayList;
 
 @WebServlet(name = "loginServlet", value = "/login-servlet")
 public class Login extends HttpServlet {
-    @Override
+
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
 
         String email = request.getParameter("email");
-        String passwd = request.getParameter("password");
+        String password = request.getParameter("password");
 
-        UserDAO userDAO = new UserDAO();
-        UserBean userBean = userDAO.doRetriveByEmailPasswd(email,passwd);
+        UserDAO service = new UserDAO();
+        UserBean user = service.doRetriveByEmailPasswd(email, password);
 
-       if(userBean != null && userBean.getStato().equalsIgnoreCase("true")){
-           HttpSession session = request.getSession();
-           session.setAttribute("user", userBean);
+        if (user != null && user.getStato().equalsIgnoreCase("true")) {
 
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
 
-           if(userBean.isAdmin().equalsIgnoreCase("true")){ //Admin fa il login
-               RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-               dispatcher.forward(request,response);
+            RequestDispatcher dispatcher;
 
-           }
-           else{
+            if (user.isAdmin().equalsIgnoreCase("true")) {
+                dispatcher = request.getRequestDispatcher("/index.jsp");
+            }
 
-               CartBean cartBean = new CartBean();
-               CartDAO serviceCart = new CartDAO();
+            else {
 
-               cartBean.setCartList(serviceCart.getCart(userBean.getId()));
+                CartBean cartBean = new CartBean();
+                CartDAO serviceCart = new CartDAO();
 
+                cartBean.setCartList(serviceCart.getCart(user.getId()));
 
-               RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/confirmPage.jsp");
-               request.getSession().setAttribute("cart", cartBean);
-               request.getSession().setAttribute("user", userBean);
-               request.setAttribute("type","success");
-               request.setAttribute("msg","Login avvenuto con successo");
-               request.setAttribute("redirect","/login.jsp");
-               dispatcher.forward(request,response);
+                session.setAttribute("cart", cartBean);
+                dispatcher = request.getRequestDispatcher("/index.jsp");
+            }
 
-           }
-       }
+            dispatcher.include(request, response);
+        }
 
-       else if(userBean == null){ //caso in cui l'user non ha un account o password/email errata
-           RequestDispatcher dispatcher;
-           dispatcher = request.getRequestDispatcher("WEB-INF/confirmPage.jsp");
-           request.setAttribute("type","alert");
-           request.setAttribute("msg","E-mail o Password errati");
-           request.setAttribute("redirect","/login.jsp");
-           dispatcher.forward(request,response);
-       }
-       else{
-           RequestDispatcher dispatcher;
-           dispatcher = request.getRequestDispatcher("WEB-INF/confirmPage.jsp");
-           request.setAttribute("type","alert");
-           request.setAttribute("msg","Errore generico");
-           request.setAttribute("redirect","/login.jsp");
-           dispatcher.forward(request,response);
-       }
+        else if (user == null) {
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/confirmPage.jsp");
+            request.setAttribute("type", "alert");
+            request.setAttribute("msg", "Email o password errati");
+            request.setAttribute("redirect", "/login.jsp");
+            dispatcher.include(request, response);
+        }
+
+        else if (user.getStato().equalsIgnoreCase("false")) {
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/confirmPage.jsp");
+            request.setAttribute("type", "alert");
+            request.setAttribute("msg", "Account disabilitato");
+            request.setAttribute("redirect", "/login.jsp");
+            dispatcher.include(request, response);
+        }
+
+        else {
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/confirmPage.jsp");
+            request.setAttribute("type", "alert");
+            request.setAttribute("msg", "Errore imprevisto");
+            request.setAttribute("redirect", "/login.jsp");
+            dispatcher.include(request, response);
+        }
     }
 }

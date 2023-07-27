@@ -75,6 +75,11 @@
         <div class="login-button">
             <input type="button" onclick="location.href='logout-servlet'" value="Logout">
         </div>
+        <div>
+            <div class="login-button">
+                <input type="button" onclick="location.href='show-orders-servlet'" value="Ordini">
+            </div>
+        </div>
         <% } else { %>
         <% if(profileJSP.isAdmin().equalsIgnoreCase("false")){ %>
         <div class="login-button">

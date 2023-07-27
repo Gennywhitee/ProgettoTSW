@@ -2,47 +2,32 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <html>
 <head>
+  <title>Dettagli</title>
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style/details.css"
   <%ProductBean product = (ProductBean) request.getAttribute("prodotto");%>
-    <title>Dettagli <%=product.getName()%></title>
+
 </head>
 <body>
+<%@include file="/menu.jsp"%>
 <div class="product-wrapper">
-
-  <table class="details-table">
-    <tr>
-      <td>
-        <div class="product-images">
-          <img src="photo/<%=product.getImage()%>" alt="Not available!">
-        </div>
-      </td>
-      <td>
-        <div class="details">
-          <div class="titolo-pagina"> <h1><%=product.getName()%></h1> </div>
-          <br><p class="product-short-des"><%=product.getDescription()%></p>
-          <br><span class="product-price"><%=product.getPrice()%>&euro;</span>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <form action="show-catalog-servlet" method="post">
-          <input type="hidden" name="action" value="comeBack">
-          <button type="submit" class="btn return-btn" type="button"  value="Come Back to Catalog">Come Back to Catalog</button>
-        </form>
-      </td>
-      <td>
-        <form action="add-to-cart-servlet" method="post">
-          <input type="hidden" name="action" value="addC">
-          <input type="hidden" name="productCode" value="<%= product.getId() %>">
-          <button type="submit" class="btn cart-btn" type="button" value="Aggiungi">Add to cart</button>
-        </form>
-      </td>
-    </tr>
-  </table>
-
+<form action="add-to-cart-servlet" method="get">
+  <div class="product-details">
+    <img src="<%=product.getImage()%>" alt="Immagine Prodotto">
+    <input type="hidden" name="productId" value="<%=product.getId()%>">
+    <div class="product-name"><%=product.getName()%></div>
+    <div class="product-description"><%=product.getDescription()%></div>
+    <div class="product-price"><%=product.getPrice()%></div>
+    <label for="quantity"></label>
+    <input type="number" name="quantity" id="quantity" placeholder="1" required>
+    <div class="bottoni">
+      <input class="button" type="submit" value="Aggiungi al Carrello">
+      <input class="button" type="button" onclick="location.href='show-catalog-servlet'" value="Torna al catalogo">
+    </div>
+  </div>
+</form>
 
 </div>
-</div>
+<%@include file="/footer.jsp"%>
 
 </body>
 </html>

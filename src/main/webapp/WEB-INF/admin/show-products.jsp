@@ -26,7 +26,7 @@ ArrayList<ProductBean> prodotti = (ArrayList<ProductBean>) request.getAttribute(
         <p class="product-text">Nome: <%=product.getName()%></p>
         <p class="product-text">Prezzo: <%=product.getPrice()%>&euro;</p>
         <p class="product-text">Categoria: <%=product.getCategory()%></p>
-        <p class="product-text" id="count">Quantita: <%=product.getQuantity()%></p>
+        <p class="product-text" >Quantita: <%=product.getQuantity()%></p>
         <button class="prodotto-pulsante" type="button" value="Dettagli" onclick="location.href='${pageContext.request.contextPath}/show-product-servlet?productId=<%=product.getId()%>'">Dettagli</button>
     </div>
     <%}%>

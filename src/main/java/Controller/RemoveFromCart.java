@@ -1,21 +1,37 @@
 package Controller;
 
-import Model.ProductCartBean;
-import Model.ProductDAO;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import Model.*;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
+
+import java.io.IOException;
 
 @WebServlet(name = "removeFromCartServlet", value = "/remove-from-cart-servlet")
 public class RemoveFromCart extends HttpServlet {
+
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response){
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
+        int id = Integer.parseInt(request.getParameter("productId"));
         HttpSession session = request.getSession();
-        ProductDAO productDAO = new ProductDAO();
-        ProductCartBean productCartBean = (ProductCartBean) session.getAttribute("cartID");
+        CartBean cart = (CartBean) session.getAttribute("cart");
+        UserBean user = (UserBean) session.getAttribute("user");
+        CartDAO serviceCart = new CartDAO();
+
+        cart.removeProduct(id);
+
+        if (user != null) {
+            serviceCart.doDelete(user.getId());
+            for (ProductCartBean product : cart.getCartList()) {
+                serviceCart.doSave(user.getId(), product.getId(), product.getQuantity());
+            }
+        }
+
+        session.setAttribute("cart", cart);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/cart.jsp");
+        dispatcher.include(request, response);
     }
 }

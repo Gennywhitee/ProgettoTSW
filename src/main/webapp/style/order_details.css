@@ -1,0 +1,23 @@
+.headerTable {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-weight: bold;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.bodyTable {
+    margin-top: 10px;
+}
+
+.single-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.single-item:last-child {
+    border-bottom: none;
+}

@@ -23,13 +23,19 @@ public class AddToCart extends HttpServlet {
         CartDAO serviceCart = new CartDAO();
         UserBean user = (UserBean) session.getAttribute("user");
 
-        if (cartBean == null)
+        if (cartBean == null) //utente non registrato
             cartBean = new CartBean();
 
         ProductBean productBean = service.doRetrieveById(productId);
 
-        if (productBean.getQuantity() >= quantity)
-            cartBean.addProduct(productId, quantity);
+        if (productBean.getQuantity() >= quantity) {
+            cartBean.addProduct(productId, quantity); //aggiungo nel carrello il prodotto
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/confirmPage.jsp");
+            request.setAttribute("type","success");
+            request.setAttribute("msg","Oggetto inserito nel carrello");
+            request.setAttribute("redirect","/show-catalog-servlet");
+            dispatcher.forward(request,response);
+        }
         else
             response.sendError(400);
 
@@ -38,7 +44,11 @@ public class AddToCart extends HttpServlet {
             for (ProductCartBean product : cartBean.getCartList()) {
                 serviceCart.doSave(user.getId(), product.getId(), product.getQuantity());
             }
-
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/confirmPage.jsp");
+            request.setAttribute("type","success");
+            request.setAttribute("msg","Inserimento avvenuto con successo");
+            request.setAttribute("redirect","/show-catalog-servlet");
+            dispatcher.forward(request,response);
             session.setAttribute("cart", cartBean);
         }
 

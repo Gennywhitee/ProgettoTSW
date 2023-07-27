@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 
 import java.io.IOException;
@@ -36,11 +37,19 @@ public class ShowProduct extends HttpServlet {
             request.setAttribute("redirect", "catalog.jsp");
             dispatcher.forward(request, response);
         }
-        else { //Controllo se admin e invece di portare a add to cart, porta a edit-product
+        else {
+            HttpSession session = request.getSession();
+            UserBean userBean = (UserBean) session.getAttribute("user");
+            if(userBean == null || userBean.isAdmin().equalsIgnoreCase("false")){
+                request.setAttribute("prodotto",prodotto);
+                dispatcher = request.getRequestDispatcher("/WEB-INF/results/details.jsp");
+                dispatcher.forward(request,response);
+            }else{
+                request.setAttribute("prodotto",prodotto);
+                dispatcher = request.getRequestDispatcher("/WEB-INF/admin/product-details.jsp");
+                dispatcher.forward(request,response);
+            }
 
-            request.setAttribute("prodotto",prodotto);
-            dispatcher = request.getRequestDispatcher("/WEB-INF/results/details.jsp");
-            dispatcher.forward(request,response);
         }
     }
 }

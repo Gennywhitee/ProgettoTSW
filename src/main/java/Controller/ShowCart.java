@@ -1,6 +1,8 @@
 package Controller;
 
 import Model.*;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,7 +18,12 @@ import java.util.ArrayList;
 @WebServlet(name = "showCartServlet", value = "/show-cart-servlet")
 public class ShowCart extends HttpServlet {
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
+
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
 
         HttpSession session = request.getSession();
@@ -43,6 +50,8 @@ public class ShowCart extends HttpServlet {
         }
         request.setAttribute("cart",cartList);
         request.setAttribute("array",array);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("cart.jsp");
+        dispatcher.forward(request,response);
     }
 
 }

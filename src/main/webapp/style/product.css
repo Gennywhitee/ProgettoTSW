@@ -11,7 +11,7 @@ div.productCard {
 }
 
 div.image > img {
-    height: 150px;
+    height: 35%;
 }
 
 div.onSale {
